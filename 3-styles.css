@@ -1,0 +1,128 @@
+/********** RESET CSS **********/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+/********** VARIABLES **********/
+:root {
+    --primary-color: #c81938;
+    --secondary-color: #ffffff;
+}
+
+/********** GENERAL **********/
+body {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+/********** MENU **********/
+.menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -187.5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-open {
+    display: none;
+}
+
+.menu-open-button {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.menu-open-button:hover {
+    transform: scale(1.1);
+}
+
+.menu-line {
+    width: 30%;
+    height: 2px;
+    border-radius: 2px;
+    background-color: var(--secondary-color);
+    transition: all 0.2s ease-in-out;
+}
+
+.menu-item {
+    position: absolute;
+    transform: translateY(0);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary-color);
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    opacity: 0;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+/* Menu Button animation */
+input:checked+.menu-open-button .menu-line-1 {
+    position: absolute;
+    transform: rotate(45deg);
+}
+
+input:checked+.menu-open-button .menu-line-2 {
+    opacity: 0;
+}
+
+input:checked+.menu-open-button .menu-line-3 {
+    position: absolute;
+    transform: rotate(-45deg);
+}
+
+/* Menu item animation */
+input:checked+.menu-open-button~.menu-item {
+    opacity: 1;
+}
+
+input:checked+.menu-open-button~.menu-item:nth-of-type(1) {
+    transform: translateY(65px);
+}
+
+input:checked+.menu-open-button~.menu-item:nth-of-type(2) {
+    transform: translateY(130px);
+}
+
+input:checked+.menu-open-button~.menu-item:nth-of-type(3) {
+    transform: translateY(195px);
+}
+
+input:checked+.menu-open-button~.menu-item:nth-of-type(4) {
+    transform: translateY(260px);
+}
+
+input:checked+.menu-open-button~.menu-item:nth-of-type(5) {
+    transform: translateY(325px);
+}
