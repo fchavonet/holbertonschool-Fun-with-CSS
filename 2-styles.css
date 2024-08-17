@@ -1,0 +1,95 @@
+/********** RESET CSS **********/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/********** VARIABLES **********/
+:root {
+    --grey-color: #c3c3c3;
+    --yes-background-color: #dc143c;
+    --no-background-color: #ebebeb;
+}
+
+/********** GENERAL **********/
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Verdana, sans-serif;
+    font-size: 1.5rem;
+}
+
+input {
+    display: none;
+}
+
+.toggle {
+    position: relative;
+    width: 100px;
+    height: 40px;
+}
+
+.toggle-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border: solid 2px var(--secondary-color);
+    border-radius: 50px;
+    background-color: var(--no-background-color);
+    transition: background-color 0.25s ease-in-out;
+}
+
+.toggle-inner::before {
+    content: "No";
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    color: var(--grey-color);
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out 0.15s;
+}
+
+.toggle-switch {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    border: solid 2px var(--grey-color);
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+    transition: left 0.25s ease-in;
+}
+
+input:checked+.toggle-label .toggle-switch {
+    left: 95%;
+}
+
+input:checked+.toggle-label .toggle-inner {
+    background-color: var(--yes-background-color);
+}
+
+input:checked+.toggle-label .toggle-inner::before {
+    content: "Yes";
+    left: 20px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+input:checked+.toggle-label .toggle-inner::before {
+    opacity: 1;
+    transition-delay: 0.15s;
+}
