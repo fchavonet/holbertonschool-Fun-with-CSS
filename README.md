@@ -27,7 +27,7 @@
 
 In this project, I explore creative web design using only HTML and CSS. My goal is to enhance static pages with dynamic layouts and animations, all without JavaScript.
 
-You can test the results of my work through the following links.
+You can test the results of my work through the following links:
 
 - [0. Sprite languages](https://fchavonet.github.io/holbertonschool-Fun-with-CSS/0-index.html).
 - [1. Move the (under)line](https://fchavonet.github.io/holbertonschool-Fun-with-CSS/1-index.html).
